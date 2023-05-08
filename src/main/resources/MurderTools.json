@@ -1,0 +1,38 @@
+[
+  {
+    "murderToolId": 1,
+    "murderToolName": "Kij baseballowy"
+  },
+  {
+    "murderToolId": 2,
+    "murderToolName": "Rewolwer"
+  },
+  {
+    "murderToolId": 3,
+    "murderToolName": "Trucizna"
+  },
+  {
+    "murderToolId": 4,
+    "murderToolName": "Nóż"
+  },
+  {
+    "murderToolId": 5,
+    "murderToolName": "Lina"
+  },
+  {
+    "murderToolId": 6,
+    "murderToolName": "Młotek"
+  },
+  {
+    "murderToolId": 7,
+    "murderToolName": "Ciężarek"
+  },
+  {
+    "murderToolId": 8,
+    "murderToolName": "Świecznik"
+  },
+  {
+    "murderToolId": 9,
+    "murderToolName": "Puchar"
+  }
+]

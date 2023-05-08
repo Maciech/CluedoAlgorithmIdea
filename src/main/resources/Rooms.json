@@ -1,0 +1,38 @@
+[
+  {
+    "roomId": 1,
+    "roomName": "Gabinet"
+  },
+  {
+    "roomId": 2,
+    "roomName": "Hol"
+  },
+  {
+    "roomId": 3,
+    "roomName": "Sypialnia"
+  },
+  {
+    "roomId": 4,
+    "roomName": "Jadalnia"
+  },
+  {
+    "roomId": 5,
+    "roomName": "Kuchnia"
+  },
+  {
+    "roomId": 6,
+    "roomName": "Patio"
+  },
+  {
+    "roomId": 7,
+    "roomName": "Spa"
+  },
+  {
+    "roomId": 8,
+    "roomName": "Kino"
+  },
+  {
+    "roomId": 9,
+    "roomName": "Salon"
+  }
+]

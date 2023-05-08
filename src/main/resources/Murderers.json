@@ -1,0 +1,26 @@
+[
+  {
+    "murdererId": 1,
+    "murdererName": "Gorczyński"
+  },
+  {
+    "murdererId": 2,
+    "murdererName": "Gwiazdowicz"
+  },
+  {
+    "murdererId": 3,
+    "murdererName": "Kostkiewicz"
+  },
+  {
+    "murdererId": 4,
+    "murdererName": "Purpulewski"
+  },
+  {
+    "murdererId": 5,
+    "murdererName": "Siwecka"
+  },
+  {
+    "murdererId": 6,
+    "murdererName": "Zielnicki"
+  }
+]
