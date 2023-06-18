@@ -1,9 +1,9 @@
 package org.cluedo;
 
 public class Solution {
-    private String murdererName;
-    private String murderRoomName;
-    private String murdererToolName;
+    private final String murdererName;
+    private final String murderRoomName;
+    private final String murdererToolName;
 
     public Solution(String murdererName, String murderRoomName, String murdererToolName) {
         this.murdererName = murdererName;
@@ -21,5 +21,14 @@ public class Solution {
 
     public String getMurdererToolName() {
         return murdererToolName;
+    }
+
+    @Override
+    public String toString() {
+        return "Solution{" +
+                "murdererName='" + murdererName + '\'' +
+                ", murderRoomName='" + murderRoomName + '\'' +
+                ", murdererToolName='" + murdererToolName + '\'' +
+                '}';
     }
 }

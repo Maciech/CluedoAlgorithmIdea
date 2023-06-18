@@ -1,5 +1,7 @@
 package org.cluedo;
 
+import java.io.IOException;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
@@ -10,8 +12,12 @@ public class Main {
 
 
 
-        //System.out.println("Hello and welcome!");
-        //new Gameplay(4);
-
+        //
+        // System.out.println("Hello and welcome!");
+        try {
+            new Gameplay(4);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

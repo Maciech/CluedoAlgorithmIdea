@@ -6,8 +6,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.swing.*;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,13 +35,28 @@ public class Gameplay {
     public static Solution solution;
     public static List<String> shuffledDeck;
 
-    public Gameplay(int numberOfPlayers) {
+    public Gameplay(int numberOfPlayers) throws IOException {
         if (numberOfPlayers >= MIN_NUMBER_OF_PLAYERS && numberOfPlayers <= MAX_NUMBER_OF_PLAYERS){
             this.numberOfPlayers = numberOfPlayers;
             this.numberOfCardsPerPlayer = (NUMBER_OF_CARDS - NUMBER_OF_CARDS_TO_SOLUTION) / numberOfPlayers;
-            initializeDeck();
+            initalizePlayers();
+            drawCards(numberOfPlayers);
         }
 
+    }
+
+    private void initalizePlayers() throws IOException {
+        SwingUtilities.invokeLater(new Runnable() {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            int number = Integer.parseInt(reader.readLine());
+            public void run() {
+                new Formularz(number);
+            }
+        });
+    }
+
+    static {
+        initializeDeck();
     }
 
     private static void initializeDeck(){
@@ -46,14 +64,15 @@ public class Gameplay {
         readRooms();
         readMurdererTools();
         solution = crimeCardDraw();
-        //System.out.println(solution.getMurdererName() + " " + solution.getMurderRoomName() + " " + solution.getMurdererToolName());
         shuffledDeck = completeDeck();
-        for (String x : completeDeck()){
-            System.out.println(x);
-        }
+        shuffledDeck.forEach(System.out::println);
 
     }
 
+    private void drawCards(int numberOfPlayers){
+
+
+    }
     private static Solution crimeCardDraw() {
             int randMurderer = (int) (Math.random() * MURDERERS_NUMBER);
             var randRoom = (int) (Math.random() * ROOM_NUMBER);
@@ -61,14 +80,16 @@ public class Gameplay {
             var mockSolution = new Solution(murdererList.get(randMurderer).getMurdererName(),
                     roomList.get(randRoom).getMurderRoomName(),
                     murderToolList.get(randMurderTool).getMurderToolName());
-            murdererList.remove(randMurderer);
-            roomList.remove(randRoom);
-            murderToolList.remove(randMurderTool);
+           // murdererList.remove(randMurderer);
+           // roomList.remove(randRoom);
+           // murderToolList.remove(randMurderTool);
 
         return mockSolution;
     }
     private static List<String> completeDeck(){
-        var deck = new Deck(murdererList, roomList, murderToolList);
+        var murderList = murdererList;
+        murderList.remove(solution.getMurdererName());
+        var deck = new Deck(murderList, roomList, murderToolList);
         return deck.getDeckMap();
     }
 
