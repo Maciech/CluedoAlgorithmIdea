@@ -6,83 +6,66 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Formularz extends JFrame {
     private List<JTextField> textField = new ArrayList<>();
+    private List<JComboBox> comboField = new ArrayList<>();
 
-    List<String> names = Gameplay.murdererList.stream()
+    Map<String,String> testMap = new HashMap<>();
+    List<String> names = Initialization.murdererList.stream()
             .map(Murderer::getMurdererName)
             .collect(Collectors.toList());
 
-    private List<JComboBox<String>> characterField = new ArrayList<>();
-    private Set<String> selectedNames = new HashSet<>();
-
-    private JButton button;
-    private int numberOfPlayers;
 
     public Formularz(int numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
         setTitle("Formularz");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         // Tworzenie komponentów
         for(int i = 0; i < numberOfPlayers; i++) {
             textField.add(new JTextField(40));
+            comboField.add(new JComboBox(names.toArray()));
         }
-        button = new JButton("Wyślij");
+
+        JButton button1 = new JButton("Potwierdź");
 
         // Utworzenie panelu
         JPanel panel = new JPanel();
         panel.add(new JLabel("Imię: "));
-        panel.setLayout(new FlowLayout());
+        panel.setLayout(new GridLayout(3,3));
         textField.forEach(panel::add);
-        characterField.forEach(panel::add);
-        for (int i = 0; i < numberOfPlayers; i++) {
-            JComboBox<String> comboBox = new JComboBox<>(new DefaultComboBoxModel<>(names.toArray(new String[0])));
-            add(panel);
-            while (true) {
-                int result = JOptionPane.showConfirmDialog(null, comboBox, "Gracz " + (i + 1) + " - Wybierz nazwę", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-                if (result == JOptionPane.OK_OPTION) {
-                    String selectedName = (String) comboBox.getSelectedItem();
-                    if (!selectedNames.contains(selectedName)) {
-                        characterField.add(comboBox);
-                        selectedNames.add(selectedName);
-                        break;
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Ta nazwa została już wybrana. Wybierz inną nazwę.", "Błąd", JOptionPane.ERROR_MESSAGE);
-                    }
-                } else {
-                    // Anulowano wybór, możesz podjąć odpowiednie działania
-                    break;
-                }
-            }
-            panel.add(comboBox);
-        }
+        comboField.forEach(panel::add);
+        panel.add(button1);
 
-// Wyświetlenie wybranych nazw dla każdego combo boxa
-        for (int i = 0; i < characterField.size(); i++) {
-            JComboBox<String> comboBox = characterField.get(i);
-            String selectedName = (String) comboBox.getSelectedItem();
-            System.out.println("Gracz " + (i + 1) + " - Wybrana nazwa: " + selectedName);
-        }
-
-
-        panel.add(button);
-
-        // Dodanie panelu do ramki
-
+        add(panel);
 
         // Ustawienie ActionListenera dla przycisku
-        button.addActionListener(new ActionListener() {
+        button1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Pobranie wartości z pól
-                //String name = textField.getText();
+                List<String> players = textField.stream()
+                        .map(JTextField::getText)
+                        .toList();
+                players.forEach(System.out::println);
+                List<String> characters = comboField.stream()
+                        .map(jComboBox -> (String) jComboBox.getSelectedItem())
+                                .toList();
+                characters.forEach(System.out::println);
 
-
+                for (int i = 0; i < numberOfPlayers; i++){
+                    testMap.put(players.get(i), characters.get(i));
+                }
+                testMap.entrySet().stream()
+                        .map(entry -> entry.getKey() + " -> " + entry.getValue())
+                        .forEach(System.out::println);
                 // Wyświetlenie wartości w konsoli
                 //System.out.println("Imię: " + name);
-                System.out.println("Warunki zaakceptowane: "+ Gameplay.solution);
+                System.out.println("Warunki zaakceptowane: "+ Initialization.solution);
+                panel.setVisible(false);
+                dispose();
             }
         });
 

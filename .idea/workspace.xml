@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="610867ee-53e4-4e7e-9e71-f212ef5f2b6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cluedo/Formularz.java" afterDir="false" />
+    <list default="true" id="610867ee-53e4-4e7e-9e71-f212ef5f2b6a" name="Changes" comment="Formula added with players names and character choosing, deck shuffle improved">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cluedo/Initialization.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/cluedo/Formularz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cluedo/Formularz.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cluedo/Gameplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cluedo/Gameplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/cluedo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cluedo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cluedo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cluedo/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/cluedo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/cluedo/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +66,18 @@
       <option name="presentableId" value="Default" />
       <updated>1683275867934</updated>
     </task>
+    <task id="LOCAL-00001" summary="Formula added with players names and character choosing, deck shuffle improved">
+      <created>1687099873570</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687099873570</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Formula added with players names and character choosing, deck shuffle improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formula added with players names and character choosing, deck shuffle improved" />
   </component>
 </project>

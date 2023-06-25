@@ -15,7 +15,7 @@ public class Main {
         //
         // System.out.println("Hello and welcome!");
         try {
-            new Gameplay(4);
+            new Initialization(4);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
